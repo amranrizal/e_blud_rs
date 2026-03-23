@@ -128,13 +128,13 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Master Data:</h6>
 
-                {{-- 1. STANDAR HARGA (SSH) --}}
-                <a class="collapse-item {{ request()->routeIs('standar-harga*') ? 'active' : '' }}"
-                href="{{ route('standar-harga.index') }}">
-                <i class="fas fa-fw fa-tags mr-1"></i> Standar Harga (SSH)
-                </a>
+                    {{-- 1. STANDAR HARGA (SSH) --}}
+                    <a class="collapse-item {{ request()->routeIs('standar-harga*') ? 'active' : '' }}"
+                    href="{{ route('standar-harga.index') }}">
+                    <i class="fas fa-fw fa-tags mr-1"></i> Standar Harga (SSH)
+                    </a>
 
-                {{-- 2. HSPK --}}
+                    {{-- 2. HSPK --}}
                     <a href="{{ route('hspk.index') }}"
                     class="nav-link">
                         <i class="fas fa-drafting-compass me-2"></i>
