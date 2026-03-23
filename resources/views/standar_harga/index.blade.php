@@ -5,7 +5,7 @@
 <style>
 .bg-purple {
     background:#6f42c1;
-}   
+}
 </style>
 
 <div class="container-fluid">
