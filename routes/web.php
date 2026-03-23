@@ -310,14 +310,15 @@ Route::prefix('asb')->group(function () {
         Route::delete('/{id}', [AsbController::class, 'destroy'])->name('asb.destroy');
 });
 
+Route::resource('sbu', SbuController::class);
 Route::prefix('sbu')->group(function () {
-    Route::get('/{id}', [StandarHargaController::class, 'showSbu'])
+    Route::get('/{id}', [SbuController::class, 'show'])
         ->name('sbu.show');
 
-    Route::post('/{id}/parameter', [StandarHargaController::class, 'tambahParameter'])
+    Route::post('/{id}/parameter', [SbuController::class, 'storeParameter'])
         ->name('sbu.parameter.store');
 
-    Route::delete('/parameter/{id}', [StandarHargaController::class, 'hapusParameter'])
+    Route::delete('/parameter/{id}', [SbuController::class, 'destroyParameter'])
         ->name('sbu.parameter.destroy');
 });
 
