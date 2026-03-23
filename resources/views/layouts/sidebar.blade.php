@@ -114,58 +114,67 @@
     <!-- ========================================================= -->
     <!-- MENU PENGANGGARAN (SSH & Mapping Pagu)                    -->
     <!-- ========================================================= -->
-    <li class="nav-item {{ request()->routeIs('standar-harga*', 'pagu*') ? 'active' : '' }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePenganggaran"
-            aria-expanded="{{ request()->routeIs('standar-harga*', 'pagu*') ? 'true' : 'false' }}"
-            aria-controls="collapsePenganggaran">
-            <i class="nav-icon fas fa-fw fa-cogs"></i> {{-- Icon Cogs cocok untuk Master/Setup --}}
+    <li class="nav-item {{ request()->routeIs('standar-harga*', 'hspk*', 'asb*', 'sbu*', 'pagu*', 'renja*') ? 'active' : '' }}">
+
+        {{-- Parent Menu --}}
+        <a class="nav-link collapsed"
+        href="#"
+        data-toggle="collapse"
+        data-target="#collapsePenganggaran"
+        aria-expanded="{{ request()->routeIs('standar-harga*', 'hspk*', 'asb*', 'sbu*', 'pagu*', 'renja*') ? 'true' : 'false' }}"
+        aria-controls="collapsePenganggaran">
+
+            <i class="fas fa-fw fa-cogs"></i>
             <span>Transaksi Penganggaran</span>
         </a>
 
-        {{-- ID Container ini HARUS SAMA dengan data-target diatas --}}
-        <div id="collapsePenganggaran" class="collapse {{ request()->routeIs('standar-harga*', 'pagu*') ? 'show' : '' }}"
-            aria-labelledby="headingPenganggaran" data-parent="#accordionSidebar">
+        {{-- Collapse Content --}}
+        <div id="collapsePenganggaran"
+            class="collapse {{ request()->routeIs('standar-harga*', 'hspk*', 'asb*', 'sbu*', 'pagu*', 'renja*') ? 'show' : '' }}"
+            data-parent="#accordionSidebar">
+
             <div class="bg-white py-2 collapse-inner rounded">
+
                 <h6 class="collapse-header">Master Data:</h6>
 
-                    {{-- 1. STANDAR HARGA (SSH) --}}
-                    <a class="collapse-item {{ request()->routeIs('standar-harga*') ? 'active' : '' }}"
-                    href="{{ route('standar-harga.index') }}">
-                    <i class="fas fa-fw fa-tags mr-1"></i> Standar Harga (SSH)
-                    </a>
+                {{-- SSH --}}
+                <a class="collapse-item {{ request()->routeIs('standar-harga*') ? 'active' : '' }}"
+                href="{{ route('standar-harga.index') }}">
+                    <i class="fas fa-tags mr-1"></i> SSH
+                </a>
 
-                    {{-- 2. HSPK --}}
-                    <a href="{{ route('hspk.index') }}"
-                    class="nav-link">
-                        <i class="fas fa-drafting-compass me-2"></i>
-                        HSPK
-                    </a>
+                {{-- HSPK --}}
+                <a class="collapse-item {{ request()->routeIs('hspk*') ? 'active' : '' }}"
+                href="{{ route('hspk.index') }}">
+                    <i class="fas fa-drafting-compass mr-1"></i> HSPK
+                </a>
 
-                    {{-- 3. ASB --}}
-                    <a href="{{ route('asb.index') }}"
-                    class="nav-link {{ request()->routeIs('asb.*') ? 'active' : '' }}">
-                        <i class="fas fa-balance-scale me-2"></i>
-                        <span>ASB</span>
-                    </a>
+                {{-- ASB --}}
+                <a class="collapse-item {{ request()->routeIs('asb*') ? 'active' : '' }}"
+                href="{{ route('asb.index') }}">
+                    <i class="fas fa-balance-scale mr-1"></i> ASB
+                </a>
 
-                    {{-- 4. SBU --}}
-                     <a href="{{ route('sbu.index') }}" class="nav-link">
-                        <i class="nav-icon fas fa-database"></i>
-                        <p>SBU</p>
-                    </a>
+                {{-- SBU --}}
+                <a class="collapse-item {{ request()->routeIs('sbu*') ? 'active' : '' }}"
+                href="{{ route('sbu.index') }}">
+                    <i class="fas fa-database mr-1"></i> SBU
+                </a>
 
+                <hr class="my-2">
 
-                {{-- 4. MAPPING RENJA (PAGU) --}}
+                {{-- PAGU --}}
                 <a class="collapse-item {{ request()->routeIs('pagu*') ? 'active' : '' }}"
                 href="{{ route('pagu.index') }}">
-                <i class="fas fa-fw fa-project-diagram mr-1"></i>
-                <span>Pagu Indikatif</span>
+                    <i class="fas fa-project-diagram mr-1"></i> Pagu Indikatif
                 </a>
 
-                <a href="{{ route('renja.index') }}" class="nav-link">
-                <i class="fas fa-list"></i>
-                <span>RENJA BLUD</span>
+                {{-- RENJA --}}
+                <a class="collapse-item {{ request()->routeIs('renja*') ? 'active' : '' }}"
+                href="{{ route('renja.index') }}">
+                    <i class="fas fa-list mr-1"></i> RENJA BLUD
                 </a>
+
             </div>
         </div>
     </li>
