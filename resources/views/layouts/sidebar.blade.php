@@ -148,6 +148,12 @@
                         <span>ASB</span>
                     </a>
 
+                    {{-- 4. SBU --}}
+                     <a href="{{ route('sbu.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-database"></i>
+                        <p>SBU</p>
+                    </a>
+
                 {{-- 4. MAPPING RENJA (PAGU) --}}
                 <a class="collapse-item {{ request()->routeIs('pagu*') ? 'active' : '' }}"
                 href="{{ route('pagu.index') }}">
